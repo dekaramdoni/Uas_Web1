@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Perpustakaan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        header {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 0;
+        }
+        header h1 {
+            font-size: 1.8rem;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        main {
+            margin-top: 20px;
+        }
+        .hero {
+            padding: 30px;
+            background-color: #f8f9fa;
+        }
+        .features h3 {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 768px) {
+            header nav ul {
+                flex-direction: column;
+            }
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container d-flex justify-content-between align-items-center">
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Beranda</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Transaksi</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Profil</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero py-5 text-center">
+            <div class="container">
+                <h2 class="display-5">Selamat Datang di Perpustakaan Online</h2>
+                <p class="lead">Temukan dan pinjam buku favorit Anda dengan mudah.</p>
+                <a href="#" class="btn btn-primary btn-lg">Cari Buku</a>
+            </div>
+        </section>
+
+        <section id="beranda" class="features py-5">
+            <div class="container">
+                <h2>Langkah Menggunakan Aplikasi</h2>
+                <ul>
+                    <li>Daftar akun untuk mengakses perpustakaan</li>
+                    <li>Cari buku di katalog</li>
+                    <li>Ajukan peminjaman buku</li>
+                    <li>Ambil buku di perpustakaan terdekat</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="transaksi" class="py-5">
+            <div class="container">
+                <h2>Formulir Transaksi</h2>
+                <form id="transaksiForm">
+                    <div class="mb-3">
+                        <label for="namaTransaksi" class="form-label">Nama Transaksi</label>
+                        <input type="text" class="form-control" id="namaTransaksi" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="jumlah" class="form-label">Jumlah</label>
+                        <input type="number" class="form-control" id="jumlah" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="kategori" class="form-label">Kategori</label>
+                        <select class="form-select" id="kategori" required>
+                            <option value="">Pilih Kategori</option>
+                            <option value="Buku">Buku</option>
+                            <option value="Majalah">Majalah</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success">Simpan</button>
+                </form>
+                <a href="#" class="btn btn-link mt-3">Daftar Transaksi</a>
+            </div>
+        </section>
+
+        <section id="profil" class="py-5">
+            <div class="container">
+                <h2>Tentang Aplikasi</h2>
+                <p>Aplikasi Perpustakaan membantu Anda menemukan buku dengan mudah dan nyaman.</p>
+            </div>
+        </section>
+
+        <section id="login" class="py-5">
+            <div class="container">
+                <h2>Login</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2025 Aplikasi Perpustakaan. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('transaksiForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let namaTransaksi = document.getElementById('namaTransaksi').value.trim();
+            let jumlah = document.getElementById('jumlah').value.trim();
+            let kategori = document.getElementById('kategori').value;
+
+            if (!namaTransaksi || !jumlah || !kategori) {
+                alert('Semua input harus diisi!');
+            } else {
+                alert('Transaksi berhasil disimpan!');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
